@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import Intro1 from 'pages/Intro1';
-import Intro2 from 'pages/Intro2';
+import Intro from 'pages/Intro';
+import Agree from 'pages/Agree';
 import Survey from 'pages/Survey';
 import Result from 'pages/Result';
 import GlobalStyle from '../globalStyles';
@@ -31,8 +31,8 @@ const App: React.FC = () => {
       <Bg className="App">
         <Container>
           <Routes>
-            <Route path="/" element={<Intro1 />} />
-            <Route path="/agree" element={<Intro2 />} />
+            <Route path="/" element={<Intro />} />
+            <Route path="/agree" element={<Agree />} />
             <Route path="/survey" element={<Survey />} />
             <Route path="/result" element={<Result />} />
           </Routes>

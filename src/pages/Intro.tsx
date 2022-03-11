@@ -6,9 +6,10 @@ import Box from 'components/atoms/Box';
 import IconText from 'components/atoms/IconText';
 import Line from 'components/atoms/Line';
 import Indent from 'components/atoms/Indent';
+import ButtonContainer from 'components/atoms/ButtonContainer';
 import Button from 'components/atoms/Button';
 
-const Intro1: React.FC = () => {
+const Intro: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -63,9 +64,11 @@ const Intro1: React.FC = () => {
         />
       </Paragraph>
 
-      <Button text="다음" onClick={() => navigate('/intro2')} />
+      <ButtonContainer>
+        <Button onClick={() => navigate('/agree')}>다음</Button>
+      </ButtonContainer>
     </div>
   );
 };
 
-export default Intro1;
+export default Intro;
