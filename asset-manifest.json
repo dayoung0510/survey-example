@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/survey-example/static/css/main.073c9b0a.css",
+    "main.js": "/survey-example/static/js/main.e2a825ef.js",
+    "index.html": "/survey-example/index.html",
+    "main.073c9b0a.css.map": "/survey-example/static/css/main.073c9b0a.css.map",
+    "main.e2a825ef.js.map": "/survey-example/static/js/main.e2a825ef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.e2a825ef.js"
+  ]
+}
