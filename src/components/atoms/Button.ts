@@ -16,7 +16,7 @@ const Button = styled.button`
   }
 
   :disabled {
-    background: ${lighten(0.15, '#6a7ba2')};
+    background: ${lighten(0.3, '#6a7ba2')};
   }
 `;
 
