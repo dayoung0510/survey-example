@@ -4,22 +4,29 @@ interface Answer {
   [name: string]: string | number;
 }
 
-type StateType = { form: Answer[] };
+type StateType = { form: Answer[]; branch: number };
 
-type ActionType = { type: 'CHECK'; name: string; value: string | number };
+type ActionType =
+  | { type: 'CHECK'; name: string; value: string | number }
+  | { type: 'BRANCH'; value: number };
 
 type Props = {
   state: StateType;
   dispatch: React.Dispatch<ActionType>;
 };
 
-const defaultState: StateType = { form: [] };
+const defaultState: StateType = { form: [], branch: 0 };
 
 const reducer = (state: StateType, action: ActionType) => {
   switch (action.type) {
     case 'CHECK': {
       const { name, value } = action;
       return { ...state, form: { ...state.form, [name]: value } };
+    }
+
+    case 'BRANCH': {
+      const { value } = action;
+      return { ...state, branch: value };
     }
 
     default: {

@@ -3,7 +3,7 @@ import Snow from '@mui/icons-material/AcUnit';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-type IconType = 'SNOW' | 'ARROW_R' | 'ARROW_L';
+type IconType = 'SNOW' | 'ARROW_R' | 'ARROW_L' | 'NULL';
 
 type Props = {
   type: IconType;
@@ -38,6 +38,9 @@ const IconText: React.FC<Props> = ({ type, text }) => {
       }
       case 'ARROW_L': {
         return <ArrowBackIcon />;
+      }
+      case 'NULL': {
+        return <></>;
       }
       default:
         return <Snow />;

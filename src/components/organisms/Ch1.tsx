@@ -1,8 +1,8 @@
 import React from 'react';
 import Title from 'components/atoms/Title';
-import RequiredText from 'components/molcules/RequiredText';
-import OptionalText from 'components/molcules/OptionalText';
-import RequiredRadio from 'components/molcules/RequiredRadio';
+import TextInput from 'components/molcules/TextInput';
+import Radio from 'components/molcules/Radio';
+import TextArea from 'components/molcules/TextArea';
 import { ch1_questions } from 'datas';
 
 const Ch1: React.FC = () => {
@@ -14,14 +14,28 @@ const Ch1: React.FC = () => {
       <div>
         {ch1_questions.map((q) => {
           switch (q.type) {
-            case 'RequiredText': {
-              return <RequiredText key={q.id} datas={q.datas} />;
+            case 'TextInput': {
+              return (
+                <TextInput
+                  key={q.idx}
+                  datas={q.datas}
+                  isRequired={q.isRequired}
+                />
+              );
             }
-            case 'OptionalText': {
-              return <OptionalText key={q.id} datas={q.datas} />;
+            case 'Radio': {
+              return (
+                <Radio key={q.idx} datas={q.datas} isRequired={q.isRequired} />
+              );
             }
-            case 'RequiredRadio': {
-              return <RequiredRadio key={q.id} datas={q.datas} />;
+            case 'TextArea': {
+              return (
+                <TextArea
+                  key={q.idx}
+                  datas={q.datas}
+                  isRequired={q.isRequired}
+                />
+              );
             }
             default:
               return <></>;
