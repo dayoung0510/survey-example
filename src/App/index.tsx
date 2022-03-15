@@ -37,7 +37,7 @@ const App: React.FC = () => {
               <Route path="/agree" element={<Agree />} />
               <Route path="/survey" element={<Survey />} />
               <Route path="/result" element={<Result />} />
-              <Route path="*" element={<Navigate to="/" />} />
+              {/* <Route path="*" element={<Navigate to="/" />} /> */}
             </Routes>
           </AppContext>
         </Container>

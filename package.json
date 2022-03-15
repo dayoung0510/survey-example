@@ -27,7 +27,7 @@
     "typescript": "^4.6.2",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "http://dayoung0510.github.io/survey-example",
+  "homepage": "https://dayoung0510.github.io/survey-example",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
