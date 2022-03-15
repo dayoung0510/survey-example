@@ -64,17 +64,26 @@ const FlexibleTable: React.FC<Props> = ({ rowSpan, sectionTitle, datas }) => {
                   type="text"
                   placeholder="입력하세요"
                   name={`${data.name}-text-1`}
+                  onChange={(e) =>
+                    handleChange(`${data.name}-text-1`, e.target.value)
+                  }
                   required
                 />
                 <Input
                   type="text"
                   placeholder="입력하세요"
                   name={`${data.name}-text-2`}
+                  onChange={(e) =>
+                    handleChange(`${data.name}-text-2`, e.target.value)
+                  }
                 />
                 <Input
                   type="text"
                   placeholder="입력하세요"
                   name={`${data.name}-text-3`}
+                  onChange={(e) =>
+                    handleChange(`${data.name}-text-3`, e.target.value)
+                  }
                 />
               </>
             ) : (
