@@ -27,13 +27,13 @@ const Container = styled.div`
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <GlobalStyle />
       <Bg className="App">
         <Container>
           <AppContext>
             <Routes>
-              <Route path="/survey-example" element={<Intro />} />
+              <Route path="/" element={<Intro />} />
               <Route path="/agree" element={<Agree />} />
               <Route path="/survey" element={<Survey />} />
               <Route path="/result" element={<Result />} />
