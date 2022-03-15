@@ -40,7 +40,7 @@ const MyCheckbox: React.FC<Props> = ({
   return (
     <Container>
       <div>
-        {idx}. {title} {checked}
+        {idx}. {title} -{checked}개 선택함
       </div>
       <AnswersContainer>
         {options?.map((option, index) => (
