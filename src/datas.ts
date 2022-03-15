@@ -152,10 +152,28 @@ export const ch3_questions: QuestionsType[] = [
   },
   {
     idx: '2',
-    type: 'TextArea',
+    type: 'Checkbox',
+    isRequired: true,
     datas: {
       idx: '2',
       name: 'b3',
+      title:
+        '개발될 필요가 있다고 생각하는 에듀테크 기술을 선택해 주세요. (필수) (복수선택 가능)',
+      options: [
+        { idx: 'b3-1', value: 1, text: '인공지능' },
+        { idx: 'b3-2', value: 1, text: '빅데이터' },
+        { idx: 'b3-3', value: 1, text: 'AR/VR' },
+        { idx: 'b3-4', value: 1, text: '블록체인' },
+        { idx: 'b3-5', value: 1, text: 'IoT' },
+      ],
+    },
+  },
+  {
+    idx: '3',
+    type: 'TextArea',
+    datas: {
+      idx: '3',
+      name: 'b4',
       title:
         '학교 현장에서 도입되면 좋을 구체적 제품(또는 콘텐츠)이 있으면 자유롭게 작성해주세요. (선택)',
     },

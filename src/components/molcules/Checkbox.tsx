@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { DataType } from 'types';
 import { useAppContext } from 'App/context';
 import {
@@ -21,26 +21,40 @@ const MyCheckbox: React.FC<Props> = ({
 }) => {
   const { dispatch } = useAppContext();
 
-  const handleChange = (name: string, value: number) => {
+  const [checked, setChecked] = useState(0);
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    name: string,
+    value: number,
+  ) => {
     dispatch({ type: 'CHECK', name: name, value: value });
+
+    if (event.target.checked) {
+      setChecked((prev) => prev + 1);
+    } else {
+      setChecked((prev) => prev - 1);
+    }
   };
 
   return (
     <Container>
       <div>
-        {idx}. {title}
+        {idx}. {title} {checked}
       </div>
       <AnswersContainer>
-        {options?.map((option, idx) => (
+        {options?.map((option, index) => (
           <Label key={option.idx}>
             <Checkbox
               type="checkbox"
-              name={name}
+              name={option.idx}
               value={option.value}
-              onChange={() => handleChange(option.idx, option.value)}
-              required={isRequired && idx === 0 && true}
+              onChange={(event) =>
+                handleChange(event, option.idx, option.value)
+              }
+              required={isRequired && checked === 0 && true}
             />
-            <CheckMark>{idx + 1}</CheckMark>
+            <CheckMark>{index + 1}</CheckMark>
             <Text>{option.text}</Text>
           </Label>
         ))}
