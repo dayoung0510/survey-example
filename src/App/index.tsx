@@ -33,7 +33,7 @@ const App: React.FC = () => {
         <Container>
           <AppContext>
             <Routes>
-              <Route path="/" element={<Intro />} />
+              <Route path="/survey-example" element={<Intro />} />
               <Route path="/agree" element={<Agree />} />
               <Route path="/survey" element={<Survey />} />
               <Route path="/result" element={<Result />} />
