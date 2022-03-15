@@ -33,11 +33,10 @@ const App: React.FC = () => {
         <Container>
           <AppContext>
             <Routes>
-              <Route path="/survey-example" element={<Intro />} />
-              <Route path="/survey-example/agree" element={<Agree />} />
-              <Route path="/survey-example/survey" element={<Survey />} />
-              <Route path="/survey-example/result" element={<Result />} />
-              {/* <Route path="*" element={<Navigate to="/" />} /> */}
+              <Route path="/" element={<Intro />} />
+              <Route path="/agree" element={<Agree />} />
+              <Route path="/survey" element={<Survey />} />
+              <Route path="/result" element={<Result />} />
             </Routes>
           </AppContext>
         </Container>
