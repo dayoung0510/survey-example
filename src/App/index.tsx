@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Intro from 'pages/Intro';
 import Agree from 'pages/Agree';
 import Survey from 'pages/Survey';
 import Result from 'pages/Result';
+import AppContext from './context';
 import GlobalStyle from '../globalStyles';
 
 const Bg = styled.div`
@@ -30,12 +31,15 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Bg className="App">
         <Container>
-          <Routes>
-            <Route path="/" element={<Intro />} />
-            <Route path="/agree" element={<Agree />} />
-            <Route path="/survey" element={<Survey />} />
-            <Route path="/result" element={<Result />} />
-          </Routes>
+          <AppContext>
+            <Routes>
+              <Route path="/" element={<Intro />} />
+              <Route path="/agree" element={<Agree />} />
+              <Route path="/survey" element={<Survey />} />
+              <Route path="/result" element={<Result />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </AppContext>
         </Container>
       </Bg>
     </BrowserRouter>

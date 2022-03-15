@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { DataType } from 'datas';
+import { useAppContext } from 'App/context';
 
 const Label = styled.label`
   display: block;
@@ -14,23 +15,9 @@ const Label = styled.label`
   user-select: none;
 `;
 
-const Radio = styled.input`
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-
-  &:checked {
-    span {
-      background-color: #4c45d1;
-      color: white;
-      border-color: #4c45d1;
-    }
-  }
-`;
-
 const CheckMark = styled.span`
   position: absolute;
-  top: 0.45rem;
+  top: 0.35rem;
   left: 0;
   border-radius: 50%;
   font-size: 0.6em;
@@ -44,12 +31,30 @@ const CheckMark = styled.span`
 
 const Text = styled.span``;
 
-const Container = styled.div``;
+const Radio = styled.input`
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+
+  &:checked + ${CheckMark} {
+    background-color: #4c45d1;
+    color: white;
+    border-color: #4c45d1;
+  }
+
+  &:checked + ${Text} {
+    color: #4c45d1;
+    font-weight: 800;
+  }
+`;
+
+const Container = styled.div`
+  margin-bottom: 3rem;
+`;
 
 const AnswersContainer = styled.div<{ flex?: boolean }>`
   display: ${({ flex }) => (flex ? 'flex' : 'block')};
   margin: 0.5rem;
-  margin-bottom: 3rem;
   line-height: 2;
   flex-wrap: wrap;
 `;
@@ -59,6 +64,13 @@ type Props = {
 };
 
 const RequiredRadio: React.FC<Props> = ({ datas }) => {
+  const { state, dispatch } = useAppContext();
+
+  const handleChange = (name: string, value: number) => {
+    dispatch({ type: 'CHECK', name: name, value: value });
+  };
+
+  console.log(state);
   return (
     <Container>
       <div>
@@ -67,7 +79,12 @@ const RequiredRadio: React.FC<Props> = ({ datas }) => {
       <AnswersContainer flex={datas.flex}>
         {datas.options?.map((option) => (
           <Label key={option.value}>
-            <Radio type="radio" name={datas.name} value={option.value} />
+            <Radio
+              type="radio"
+              name={datas.name}
+              value={option.value}
+              onChange={() => handleChange(datas.name, option.value)}
+            />
             <CheckMark>{option.value}</CheckMark>
             <Text>{option.text}</Text>
           </Label>

@@ -78,7 +78,7 @@ export const ch1_questions: QuestionsType[] = [
     datas: {
       idx: 5,
       name: 'a5',
-      title: '근무하고 계신 지역을 선택해 주세요..',
+      title: '근무하고 계신 지역을 선택해 주세요.',
       options: [
         { value: 1, text: '서울' },
         { value: 2, text: '부산' },
