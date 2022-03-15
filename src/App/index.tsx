@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, HashRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Intro from 'pages/Intro';
 import Agree from 'pages/Agree';
@@ -27,7 +27,7 @@ const Container = styled.div`
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <GlobalStyle />
       <Bg className="App">
         <Container>
@@ -41,7 +41,7 @@ const App: React.FC = () => {
           </AppContext>
         </Container>
       </Bg>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
